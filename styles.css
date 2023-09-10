@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(images/old-butcher-cooking-tools-cutting-board-dark-concrete-with-spices-salt-pepper-flat-lay_124507-10185.avif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+}
+.menu {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #df593bac;
+  display: grid;
+  place-items: center;
+  color: #2f130e;
+  padding: 1.5rem;
+  row-gap: 1.2rem;
+  border-radius: 0.4rem;
+  transition: display 0.2s ease-out;
+}
+.menu > img {
+  width: 45px;
+}
+.menu  > h1 {
+  white-space: nowrap;
+}
+.view {
+  border: none;
+  outline: none;
+  background-color: #2f130e;
+  color: #fff;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.view:hover {
+  opacity: 0.7;
+}
+/**************************** accordion ***********************************/
+
+.accordion {
+  max-width: 1000px;
+  display: none;
+  transition: display 0.2s ease-out;
+}
+.accordion-item {
+  width: 100%;
+  min-width: 600px;
+}
+.accordion-header {
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+.accordion-header::after {
+  content: "\002B";
+  position: absolute;
+  font-size: 2rem;
+  border-radius: 50%;
+  background-color: #D8D0CC;
+  right: 1rem;
+  color:#5f3d2b;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-out;
+}
+.accordion-header.active::after {
+  content: "\2212";
+}
+.accordion-header > h2 {
+  color: #DF3D2B;
+}
+.accordion-header > small {
+  font-weight: 600;
+}
+.accordion-item-body {
+  background-color: rgba(245, 41, 18, 0.8);
+  margin: 0 8px;
+  color: #F6F6F6;
+  max-height: 0;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion-item-body[data-item="4"] {
+  padding-bottom: 0;
+}
+.accordion-item-body > ul {
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+.accordion-item-body > ul > li {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid #F6F6F6;
+}
+
+/************************* MEDIA QUERIES **************************/
+@media (max-width: 650px) and (min-width: 431px) {
+  .accordion-item {
+    min-width: 400px;
+  }
+}
+@media (max-width: 430px) {
+  .menu {
+    width: 350px;
+    text-align: center;
+  }
+  .menu > h1 {
+    white-space: wrap;
+  }
+  .accordion-item {
+    min-width: 300px;
+  }
+  .accordion-header > h2 {
+    font-size: 1.2rem;
+  }
+  
+
+}
